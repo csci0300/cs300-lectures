@@ -1,0 +1,16 @@
+diff --git p-eve.cc p-eve.cc
+index defd651..e31906e 100644
+--- p-eve.cc
++++ p-eve.cc
+@@ -8,6 +8,11 @@ void process_main() {
+             console_printf(0x0E00, "Hi, I'm Eve! #%d\n", i / 512);
+         }
+
++        if (i % 2048 == 0) {
++            console_printf(0x0E00, "EVE ATTACK!\n");
++            while (true) {
++            }
++        }
+         sys_yield();
+     }
+ }
