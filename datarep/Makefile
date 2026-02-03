@@ -1,7 +1,7 @@
 CC=clang
 PROGRAMS = add addin ptr-intro \
-					 mexplore.noopt mexplore.opt \
-					 mexplore-string
+					 mexplore.noopt mexplore.opt mexplore \
+					 mexplore-string mexplore-uninitialized
 ALLPROGRAMS = $(PROGRAMS)
 
 all: $(ALLPROGRAMS)
