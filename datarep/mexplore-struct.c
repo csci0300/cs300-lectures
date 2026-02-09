@@ -5,7 +5,7 @@
 #include <stddef.h>
 #include "hexdump.h"
 
-struct x_t {
+struct ints_and_chars {
   int i1;
   int i2;
   int i3;
@@ -15,7 +15,7 @@ struct x_t {
 };
 
 void f() {
-  struct x_t x;
+  struct ints_and_chars x;
   x.i1 = 1;
 
   printf("whole struct:\n");
