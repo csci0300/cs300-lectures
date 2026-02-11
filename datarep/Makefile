@@ -3,7 +3,9 @@ PROGRAMS = add addin ptr-intro \
 					 mexplore.noopt mexplore.opt mexplore \
 					 mexplore-string mexplore-uninitialized \
 					 mexplore-array mexplore-struct \
-					 linked-list mexplore-order.opt mexplore-order.noopt
+					 linked-list mexplore-order.opt mexplore-order.noopt \
+					 mexplore-structalign.noopt mexplore-structalign.opt \
+					 signed-int
 ALLPROGRAMS = $(PROGRAMS)
 
 all: $(ALLPROGRAMS)
