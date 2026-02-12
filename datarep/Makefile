@@ -5,7 +5,7 @@ PROGRAMS = add addin ptr-intro \
 					 mexplore-array mexplore-struct \
 					 linked-list mexplore-order.opt mexplore-order.noopt \
 					 mexplore-structalign.noopt mexplore-structalign.opt \
-					 signed-int
+					 signed-int ubexplore.opt ubexplore.opt
 ALLPROGRAMS = $(PROGRAMS)
 
 all: $(ALLPROGRAMS)
