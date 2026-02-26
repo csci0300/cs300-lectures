@@ -5,7 +5,8 @@ PROGRAMS = add addin ptr-intro \
 					 mexplore-array mexplore-struct \
 					 linked-list mexplore-order.opt mexplore-order.noopt \
 					 mexplore-structalign.noopt mexplore-structalign.opt \
-					 signed-int ubexplore.noopt ubexplore.opt
+					 signed-int ubexplore.noopt ubexplore.opt \
+					 aligndemo
 ALLPROGRAMS = $(PROGRAMS)
 
 all: $(ALLPROGRAMS)
@@ -38,7 +39,7 @@ ptr-intro: ptr-intro.o
 l04-review: l04-review.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -o $@ $^
 
-mexplore mexplore-uninitialized mexplore-string mexplore-array mexplore-struct mexplore-with-dynamic linked-list signed-int: %: %.o hexdump.o
+mexplore mexplore-uninitialized mexplore-string mexplore-array mexplore-struct mexplore-with-dynamic linked-list signed-int aligndemo: %: %.o hexdump.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -o $@ $^
 
 mexplore-structalign.noopt mexplore-order.noopt mexplore.noopt: %.noopt: %.noopt.o hexdump.o
