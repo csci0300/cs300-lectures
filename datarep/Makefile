@@ -39,7 +39,10 @@ ptr-intro: ptr-intro.o
 l04-review: l04-review.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -o $@ $^
 
-mexplore mexplore-uninitialized mexplore-string mexplore-array mexplore-struct mexplore-with-dynamic linked-list signed-int aligndemo: %: %.o hexdump.o
+aligndemo: aligndemo.o hexdump.o
+	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -fsanitize=address -o $@ $^
+
+mexplore mexplore-uninitialized mexplore-string mexplore-array mexplore-struct mexplore-with-dynamic linked-list signed-int: %: %.o hexdump.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -o $@ $^
 
 mexplore-structalign.noopt mexplore-order.noopt mexplore.noopt: %.noopt: %.noopt.o hexdump.o
