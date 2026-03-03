@@ -13,7 +13,7 @@ all: $(ALLPROGRAMS)
 
 include ../common/rules.mk
 
-CFLAGS += -Wno-unused-parameter
+CFLAGS += -Wno-unused-parameter -fsanitize=undefined
 
 %.o: %.c $(BUILDSTAMP)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(DEPCFLAGS) $(O) -o $@ -c $<
@@ -39,8 +39,8 @@ ptr-intro: ptr-intro.o
 l04-review: l04-review.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -o $@ $^
 
-aligndemo: aligndemo.o hexdump.o
-	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -fsanitize=address -o $@ $^
+aligndemo: aligndemo.c hexdump.o
+	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -o $@ $^
 
 mexplore mexplore-uninitialized mexplore-string mexplore-array mexplore-struct mexplore-with-dynamic linked-list signed-int: %: %.o hexdump.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -o $@ $^
