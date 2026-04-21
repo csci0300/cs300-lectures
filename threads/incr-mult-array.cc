@@ -18,21 +18,24 @@ struct item all_items[ARRAY_SIZE];
 
 void threadfunc(int tid) {
     unsigned int seed = tid;
-    
+
     for (int i = 0; i != 10000000; ++i) {
-	int idx1 = rand_r(&seed) % ARRAY_SIZE; // Get random int [0, ARRAY_SIZE)
-	int idx2 = rand_r(&seed) % ARRAY_SIZE; // Get random int [0, ARRAY_SIZE)
-	all_items[idx1].mtx.lock();
-	all_items[idx2].mtx.lock();
+        // Get random int [0, ARRAY_SIZE)
+        int idx1 = rand_r(&seed) % ARRAY_SIZE;
+        // Get random int [0, ARRAY_SIZE)
+        int idx2 = rand_r(&seed) % ARRAY_SIZE;
 
-	all_items[idx1].num *= all_items[idx2].num;
+        all_items[idx1].mtx.lock();
+        all_items[idx2].mtx.lock();
 
-	all_items[idx1].mtx.unlock();
-	all_items[idx2].mtx.unlock();
+        all_items[idx1].num *= all_items[idx2].num;
 
-	if ((i % 100000) == 0) {
-	    printf("Thread %d:  %d iterations\n", tid, i);
-	}
+        all_items[idx1].mtx.unlock();
+        all_items[idx2].mtx.unlock();
+
+        if ((i % 100000) == 0) {
+            printf("Thread %d:  %d iterations\n", tid, i);
+        }
     }
 }
 
@@ -51,6 +54,6 @@ int main() {
 
 void setup() {
     for (int i = 0; i < ARRAY_SIZE; i++) {
-	all_items[i].num = 0;
+        all_items[i].num = 0;
     }
 }
