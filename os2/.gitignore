@@ -1,0 +1,17 @@
+/fork1
+/fork2
+/fork2b
+/fork3
+/forkexecmyecho
+/forkmix-stdio
+/forkmix-syscall
+/forkmyecho
+/manyfork
+/myecho
+/runmyecho
+/selfpipe
+/spawnmyecho
+/waitdemo
+/babypipe
+/childpipe
+/execmyecho
